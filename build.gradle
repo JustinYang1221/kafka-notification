@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.13'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group 'com.notification'
+version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+// 指定編碼格式
+[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    //lombok
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'org.springframework.kafka:spring-kafka'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+}
+
+test {
+    useJUnitPlatform()
+}

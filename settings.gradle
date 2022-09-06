@@ -1,0 +1,3 @@
+rootProject.name = 'notification-module'
+include 'order-module'
+
