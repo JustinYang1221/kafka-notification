@@ -14,3 +14,4 @@ public class NotificationApplication {
         SpringApplication.run(NotificationApplication.class, args);
     }
 }
+
